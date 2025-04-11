@@ -11,13 +11,14 @@ class NhanVien
 protected:
 	int ID;
 	string HoTen;
-	string NgaySinh;
+	string NgayLam;
+	string ChucVu;
 	int NgayLamViec;
-	int NgayNghiCoPhep;
+	int NgayPhepTichLuy;
 	int NgayNghiKhongPhep;
 public:
 	NhanVien();
-	NhanVien(int, string, string, int, int, int);
+	NhanVien(int, string, string, string, int, int, int);
 	~NhanVien();
 
 	void setID(int);
@@ -26,34 +27,59 @@ public:
 	void setHoTen(string);
 	string getHoTen() const;
 
-	void setNgaySinh(string);
-	string getNgaySinh() const;
+	void setNgayLam(string);
+	string getNgayLam() const;
+
+	void setChucVu(string);
+	string getChucVu() const;
 
 	void setNgayLamViec(int);
 	int getNgayLamViec() const;
 
-	void setNgayNghiCoPhep(int);
-	int getNgayNghiCoPhep() const;
+	void setNgayPhepTichLuy(int);
+	int getNgayPhepTichLuy() const;
 
 	void setNgayNghiKhongPhep(int);
 	int getNgayNghiKhongPhep() const;
 
-	string DanhGia(int, int, int) const;
+	string DanhGia();
+	float HeSoLuong();
+	virtual float TinhLuong();
 };
 
-class ChucVuNhanVien : public NhanVien
+class TruongPhong : public NhanVien
 {
 private:
-	string ChucVu;
-	int HeSoLuong;
 	int LuongCoBan;
-	int PhuCap;
 public:
-	ChucVuNhanVien();
-	ChucVuNhanVien(int, string, string, string, int, int, int, int, int, int);
-	~ChucVuNhanVien();
-
-	float TinhLuong(int, int, int, int, int, int) const;
+	TruongPhong();
+	TruongPhong(int, string, string, string, int, int, int, int);
+	~TruongPhong();
+	float TinhLuong();
 };
+
+class PhoPhong : public NhanVien
+{
+private:
+	int LuongCoBan;
+public:
+	PhoPhong();
+	PhoPhong(int, string, string, string, int, int, int, int);
+	~PhoPhong();
+	float TinhLuong();
+};
+
+class NhanVienVanPhong : public NhanVien
+{
+private:
+	int LuongCoBan;
+public:
+	NhanVienVanPhong();
+	NhanVienVanPhong(int, string, string, string, int, int, int, int);
+	~NhanVienVanPhong();
+	float TinhLuong();
+};
+
+
 
 #endif
