@@ -4,19 +4,21 @@ NhanVien::NhanVien()
 {
 	this->ID = 0;
 	this->HoTen = "";
-	this->NgaySinh = "";
+	this->NgayLam = "";
+	this->ChucVu = "";
 	this->NgayLamViec = 0;
-	this->NgayNghiCoPhep = 0;
+	this->NgayPhepTichLuy = 0;
 	this->NgayNghiKhongPhep = 0;
 }
 
-NhanVien::NhanVien(int ID, string HoTen, string NgaySinh, int NgayLamViec, int NgayNghiCoPhep, int NgayNghiKhongPhep)
+NhanVien::NhanVien(int ID, string HoTen, string NgayLam, string ChucVu, int NgayLamViec, int NgayPhepTichLuy, int NgayNghiKhongPhep)
 {
 	setID(ID);
 	setHoTen(HoTen);
-	setNgaySinh(NgaySinh);
+	setChucVu(ChucVu);
+	setNgayLam(NgayLam);
 	setNgayLamViec(NgayLamViec);
-	setNgayNghiCoPhep(NgayNghiCoPhep);
+	setNgayPhepTichLuy(NgayPhepTichLuy);
 	setNgayNghiKhongPhep(NgayNghiKhongPhep);
 }
 
@@ -40,13 +42,13 @@ string NhanVien::getHoTen() const
 	return this->HoTen;
 }
 
-void NhanVien::setNgaySinh(string NgaySinh)
+void NhanVien::setNgayLam(string NgayLam)
 {
-	this->NgaySinh = NgaySinh;
+	this->NgayLam = NgayLam;
 }
-string NhanVien::getNgaySinh() const
+string NhanVien::getNgayLam() const
 {
-	return this->NgaySinh;
+	return this->NgayLam;
 }
 
 void NhanVien::setNgayLamViec(int NgayLamViec)
@@ -58,13 +60,13 @@ int NhanVien::getNgayLamViec() const
 	return this->NgayLamViec;
 }
 
-void NhanVien::setNgayNghiCoPhep(int NgayNghiCoPhep)
+void NhanVien::setNgayPhepTichLuy(int NgayPhepTichLuy)
 {
-	this->NgayNghiCoPhep = NgayNghiCoPhep;
+	this->NgayPhepTichLuy = NgayPhepTichLuy;
 }
-int NhanVien::getNgayNghiCoPhep() const
+int NhanVien::getNgayPhepTichLuy() const
 {
-	return this->NgayNghiCoPhep;
+	return this->NgayPhepTichLuy;
 }
 
 void NhanVien::setNgayNghiKhongPhep(int NgayNghiKhongPhep)
@@ -76,39 +78,102 @@ int NhanVien::getNgayNghiKhongPhep() const
 	return this->NgayNghiKhongPhep;
 }
 
-string NhanVien::DanhGia(int NgayLamViec, int NgayNghiCoPhep, int NgayNghiKhongPhep) const
+string NhanVien::DanhGia()
 {
-	if (NgayLamViec > 20 && NgayNghiCoPhep < 5 && NgayNghiKhongPhep < 2)
+	if (this->NgayLamViec >= 20)
 		return "Tot";
-	else if (NgayLamViec > 15 && NgayNghiCoPhep < 10 && NgayNghiKhongPhep < 5)
+	else if (this->NgayLamViec >= 15)
 		return "TrungBinh";
 	else
-		return "Kem";
+		return "Yeu";
 }
 
-ChucVuNhanVien::ChucVuNhanVien()
+float NhanVien::HeSoLuong()
 {
-	this->ChucVu = "";
-	this->HeSoLuong = 0;
+	float result = 0.0f;
+	if (this->NgayLamViec / 260 > 10)
+		result = 2.0f;
+	else if (this->NgayLamViec / 260 > 5)
+		result = 1.5f;
+	else
+		result = 1.0f;
+	return result;
+}
+
+TruongPhong::TruongPhong()
+{
 	this->LuongCoBan = 0;
-	this->PhuCap = 0;
 }
 
-ChucVuNhanVien::ChucVuNhanVien(int ID, string HoTen, string NgaySinh, string ChucVu, int HeSoLuong, int LuongCoBan, int PhuCap, int NgayLamViec, int NgayNghiCoPhep, int NgayNghiKhongPhep)
-	: NhanVien(ID, HoTen, NgaySinh, NgayLamViec, NgayNghiCoPhep, NgayNghiKhongPhep)
+TruongPhong::TruongPhong(int ID, string HoTen, string NgayLam, string ChucVu, int NgayLamViec, int NgayPhepTichLuy, int NgayNghiKhongPhep, int LuongCoBan)
+	: NhanVien(ID, HoTen, NgayLam, ChucVu, NgayLamViec, NgayPhepTichLuy, NgayNghiKhongPhep)
 {
-	this->ChucVu = ChucVu;
-	this->HeSoLuong = HeSoLuong;
 	this->LuongCoBan = LuongCoBan;
-	this->PhuCap = PhuCap;
 }
 
-ChucVuNhanVien::~ChucVuNhanVien() {}
+TruongPhong::~TruongPhong() {}
 
-float ChucVuNhanVien::TinhLuong(int NgayLamViec, int NgayNghiCoPhep, int NgayNghiKhongPhep, int HeSoLuong, int LuongCoBan, int PhuCap) const
+PhoPhong::PhoPhong()
 {
-	float Luong = (HeSoLuong * LuongCoBan);
-	Luong -= Luong * (NgayNghiCoPhep * 0.02 + NgayNghiKhongPhep * 0.05);
-	Luong += PhuCap;
-	return max(Luong, 0.0f);
+	this->LuongCoBan = 0;
+}
+
+PhoPhong::PhoPhong(int ID, string HoTen, string NgayLam, string ChucVu, int NgayLamViec, int NgayPhepTichLuy, int NgayNghiKhongPhep, int LuongCoBan)
+	: NhanVien(ID, HoTen, NgayLam, ChucVu, NgayLamViec, NgayPhepTichLuy, NgayNghiKhongPhep)
+{
+	this->LuongCoBan = LuongCoBan;
+}
+
+PhoPhong::~PhoPhong() {}
+
+NhanVienVanPhong::NhanVienVanPhong()
+{
+	this->LuongCoBan = 0;
+}
+
+NhanVienVanPhong::NhanVienVanPhong(int ID, string HoTen, string NgayLam, string ChucVu, int NgayLamViec, int NgayPhepTichLuy, int NgayNghiKhongPhep, int LuongCoBan)
+	: NhanVien(ID, HoTen, NgayLam, ChucVu, NgayLamViec, NgayPhepTichLuy, NgayNghiKhongPhep)
+{
+	this->LuongCoBan = LuongCoBan;
+}
+
+NhanVienVanPhong::~NhanVienVanPhong() {}
+
+float TruongPhong::TinhLuong()
+{
+	float Luong = 0.0f;
+	Luong = LuongCoBan * HeSoLuong();
+
+	if (this->NgayNghiKhongPhep > 5)
+		Luong -= 0.1f * LuongCoBan;
+	else if (this->NgayNghiKhongPhep > 3)
+		Luong -= 0.05f * LuongCoBan;
+	else if (this->NgayNghiKhongPhep > 1)
+		Luong -= 0.02f * LuongCoBan;
+}
+
+float PhoPhong::TinhLuong()
+{
+	float Luong = 0.0f;
+	Luong = LuongCoBan * HeSoLuong();
+	if (this->NgayNghiKhongPhep > 5)
+		Luong -= 0.1f * LuongCoBan;
+	else if (this->NgayNghiKhongPhep > 3)
+		Luong -= 0.05f * LuongCoBan;
+	else if (this->NgayNghiKhongPhep > 1)
+		Luong -= 0.02f * LuongCoBan;
+	return Luong;
+}
+
+float NhanVienVanPhong::TinhLuong()
+{
+	float Luong = 0.0f;
+	Luong = LuongCoBan * HeSoLuong();
+	if (this->NgayNghiKhongPhep > 5)
+		Luong -= 0.1f * LuongCoBan;
+	else if (this->NgayNghiKhongPhep > 3)
+		Luong -= 0.05f * LuongCoBan;
+	else if (this->NgayNghiKhongPhep > 1)
+		Luong -= 0.02f * LuongCoBan;
+	return Luong;
 }
