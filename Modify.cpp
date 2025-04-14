@@ -1,6 +1,6 @@
 #include "Modify.h"
 
-void Modify::Them(){
+void Modify::Them() {
     int id, ngaylamviec, ngayphep, nghikp, luongcb;
     string hoten, ngaylam, chucvu;
 
@@ -20,7 +20,7 @@ void Modify::Them(){
     else if (chucvu == "Truong phong") nv = new TruongPhong();
     else {
         cout << "Chuc vu khong hop le!\n";
-    return;
+        return;
     }
 
     nv->setID(id);
@@ -43,7 +43,7 @@ void Modify::Them(){
     cout << "Them nhan vien thanh cong!\n";
 }
 
-void Modify::Xoa(){
+void Modify::Xoa() {
     cin.ignore();
     string keyword;
     cout << "Nhap ID hoac Ten de xoa: ";
@@ -71,7 +71,7 @@ void Modify::Xoa(){
     }
 }
 
-void Modify::ChinhSua(){
+void Modify::ChinhSua() {
     cin.ignore();
     string keyword;
     cout << "Nhap ID hoac Ten cua nhan vien can chinh sua: ";
@@ -92,7 +92,6 @@ void Modify::ChinhSua(){
             cout << "Nhap so ngay nghi khong phep moi: "; cin >> nghikp;
             cout << "Nhap luong co ban moi: "; cin >> luongcb;
 
-            NhanVien* nv = nullptr;
             if (chucvu == "Nhan vien") nv = new NhanVienVanPhong();
             else if (chucvu == "Pho phong") nv = new PhoPhong();
             else if (chucvu == "Truong phong") nv = new TruongPhong();
@@ -101,7 +100,7 @@ void Modify::ChinhSua(){
                 return;
             }
 
-			nv->setID(id);
+            nv->setID(id);
             nv->setHoTen(hoten);
             nv->setChucVu(chucvu);
             nv->setNgayLam(ngaylam);
