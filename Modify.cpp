@@ -20,8 +20,27 @@ void Modify::Them(){
     else if (chucvu == "Truong phong") nv = new TruongPhong();
     else {
         cout << "Chuc vu khong hop le!\n";
-    return;
+        return;
     }
+
+    nv->setID(id);
+    nv->setHoTen(hoten);
+    nv->setChucVu(chucvu);
+    nv->setNgayLam(ngaylam);
+    nv->setNgayLamViec(ngaylamviec);
+    nv->setNgayPhepTichLuy(ngayphep);
+    nv->setNgayNghikhongPhep(nghikp);
+
+    if (NhanVienVanPhong* vp = dynamic_cast<NhanVienVanPhong*>(nv))
+        vp->setLuongCoBan(luongcb);
+    else if (PhoPhong* pp = dynamic_cast<PhoPhong*>(nv))
+        pp->setLuongCoBan(luongcb);
+    else if (TruongPhong* tp = dynamic_cast<TruongPhong*>(nv))
+        tp->setLuongCoBan(luongcb);
+
+    danhSachNhanVien.push_back(nv);
+
+    cout << "Them nhan vien thanh cong!\n";
 }
 
 void Modify::Xoa(){
