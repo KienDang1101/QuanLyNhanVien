@@ -20,7 +20,7 @@ void Modify::Them(){
     else if (chucvu == "Truong phong") nv = new TruongPhong();
     else {
         cout << "Chuc vu khong hop le!\n";
-        return;
+    return;
     }
 
     nv->setID(id);
@@ -29,7 +29,7 @@ void Modify::Them(){
     nv->setNgayLam(ngaylam);
     nv->setNgayLamViec(ngaylamviec);
     nv->setNgayPhepTichLuy(ngayphep);
-    nv->setNgayNghikhongPhep(nghikp);
+    nv->setNgayNghiKhongPhep(nghikp);
 
     if (NhanVienVanPhong* vp = dynamic_cast<NhanVienVanPhong*>(nv))
         vp->setLuongCoBan(luongcb);
@@ -38,7 +38,7 @@ void Modify::Them(){
     else if (TruongPhong* tp = dynamic_cast<TruongPhong*>(nv))
         tp->setLuongCoBan(luongcb);
 
-    danhSachNhanVien.push_back(nv);
+    DanhSachNhanVien.push_back(nv);
 
     cout << "Them nhan vien thanh cong!\n";
 }
@@ -52,12 +52,12 @@ void Modify::Xoa(){
     bool isNumber = all_of(keyword.begin(), keyword.end(), ::isdigit);
     bool found = false;
 
-    auto it = danhSachNhanVien.begin();
-    while (it != danhSachNhanVien.end()) {
+    auto it = DanhSachNhanVien.begin();
+    while (it != DanhSachNhanVien.end()) {
         NhanVien* nv = *it;
         if ((isNumber && nv->getID() == stoi(keyword)) || (!isNumber && nv->getHoTen() == keyword)) {
             delete nv;
-            it = danhSachNhanVien.erase(it);
+            it = DanhSachNhanVien.erase(it);
             found = true;
             cout << "Xoa nhan vien thanh cong!\n";
         }
@@ -77,19 +77,33 @@ void Modify::ChinhSua(){
     cout << "Nhap ID hoac Ten cua nhan vien can chinh sua: ";
     getline(cin, keyword);
 
-    for (auto& nv : danhSachNhanVien) {
+    for (auto& nv : DanhSachNhanVien) {
         if (to_string(nv->getID()) == keyword || nv->getHoTen() == keyword) {
-            int ngaylamviec, ngayphep, nghikp, luongcb;
-            string hoten, ngaylam;
+            int id, ngaylamviec, ngayphep, nghikp, luongcb;
+            string hoten, ngaylam, chucvu;
 
+            cout << "Nhap ID moi: "; cin >> id;
+            cin.ignore();
             cout << "Nhap ho ten moi: "; getline(cin, hoten);
+            cout << "Nhap chuc vu moi (Nhan vien / Pho phong / Truong phong): "; getline(cin, chucvu);
             cout << "Nhap ngay bat dau lam moi: "; getline(cin, ngaylam);
             cout << "Nhap so ngay lam viec moi: "; cin >> ngaylamviec;
             cout << "Nhap so ngay nghi phep tich luy moi: "; cin >> ngayphep;
             cout << "Nhap so ngay nghi khong phep moi: "; cin >> nghikp;
             cout << "Nhap luong co ban moi: "; cin >> luongcb;
 
+            NhanVien* nv = nullptr;
+            if (chucvu == "Nhan vien") nv = new NhanVienVanPhong();
+            else if (chucvu == "Pho phong") nv = new PhoPhong();
+            else if (chucvu == "Truong phong") nv = new TruongPhong();
+            else {
+                cout << "Chuc vu khong hop le!\n";
+                return;
+            }
+
+			nv->setID(id);
             nv->setHoTen(hoten);
+            nv->setChucVu(chucvu);
             nv->setNgayLam(ngaylam);
             nv->setNgayLamViec(ngaylamviec);
             nv->setNgayPhepTichLuy(ngayphep);
