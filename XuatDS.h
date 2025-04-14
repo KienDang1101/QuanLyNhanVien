@@ -8,8 +8,6 @@ using namespace std;
 
 class XuatDS
 {
-private:
-vector<NhanVien*> danhSachNhanVien;
 public:
    static void Xuat();
 };
