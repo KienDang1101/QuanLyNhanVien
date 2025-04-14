@@ -10,6 +10,8 @@
 
 using namespace std;
 
+extern vector<NhanVien*> DanhSachNhanVien;
+
 class DocFileCSV
 {
 public:
