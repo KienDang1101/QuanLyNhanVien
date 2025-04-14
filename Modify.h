@@ -3,11 +3,12 @@
 
 #include "NhanVien.h"
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
+extern vector<NhanVien*> danhSachNhanVien;
 class Modify{
-private:
-    vector<NhanVien*> danhSachNhanVien;
 public:
     static void Them();
     static void Xoa();
