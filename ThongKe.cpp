@@ -1,4 +1,5 @@
 #include"ThongKe.h"
+#include"XuatDS.h" 
 
 vector <NhanVien*> ThongKe::List_DanhGia(vector<NhanVien*> DanhSach, string BacDanhGia) {
 	vector <NhanVien*> ThongKeNV;
@@ -9,7 +10,7 @@ vector <NhanVien*> ThongKe::List_DanhGia(vector<NhanVien*> DanhSach, string BacD
 	return ThongKeNV;
 }
 
-vector <NhanVien*> List_NgayNghi(vector <NhanVien*> DanhSach, int Max) {
+vector <NhanVien*> ThongKe::List_NgayNghi(vector <NhanVien*> DanhSach, int Max) {
 	vector <NhanVien*> ThongKeNV;
 	for (NhanVien* NV : DanhSach) {
 		if (NV->getNgayPhepTichLuy() <= Max)
@@ -23,9 +24,9 @@ vector <NhanVien*> ThongKe::Options(vector <NhanVien*> DanhSach) {
 	int Max;
 	vector <NhanVien*> List;
 
-	cout << "1. Tim va xuat danh sach nhan vien theo danh gia.";
-	cout << "2. Tim va xuat danh sach nhan vien co so ngay nghi khong phep.";
-	cout << "nhap lua chon: ";
+	cout << "1. Tim va xuat danh sach nhan vien theo danh gia.\n";
+	cout << "2. Tim va xuat danh sach nhan vien co so ngay nghi khong phep.\n";
+	cout << "Nhap lua chon: ";
 	cin >> c;
 	switch (c)
 	{
@@ -34,7 +35,7 @@ vector <NhanVien*> ThongKe::Options(vector <NhanVien*> DanhSach) {
 		cout << "1. Danh gia tot.\n";
 		cout << "2. Danh gia trung binh.\n";
 		cout << "3. Danh gia yeu.\n";
-		cout << "nhap lua chon: ";
+		cout << "Nhap lua chon: ";
 		cin >> BacDanhGia;
 		switch (BacDanhGia)
 		{
