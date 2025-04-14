@@ -2,11 +2,18 @@
 #define DOCFILECSV_H
 
 #include "NhanVien.h"
-#include "NhanVien.cpp"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
-class DocFileCSV(){
-    public:
-    static void DocFile();
-}
+class DocFileCSV
+{
+public:
+	static void DocFile();
+};
+
+#endif
