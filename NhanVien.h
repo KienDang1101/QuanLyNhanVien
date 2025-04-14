@@ -42,6 +42,8 @@ public:
 	void setNgayNghiKhongPhep(int);
 	int getNgayNghiKhongPhep() const;
 
+	virtual int getLuongCoBan() const;
+
 	string DanhGia();
 	float HeSoLuong();
 	virtual float TinhLuong();
