@@ -2,7 +2,7 @@
 #define MODIFY_H
 
 #include "NhanVien.h"
-
+#include <vector>
 using namespace std;
 
 class Modify{
