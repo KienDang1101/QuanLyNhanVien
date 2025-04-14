@@ -1,6 +1,9 @@
 #include "DocFileCSV.h"
 
-void DocFileCSV::DocFile(){
+vector<NhanVien*> danhSachNhanVien;
+
+void DocFileCSV::DocFile()
+{
     for (auto nv : danhSachNhanVien) delete nv;
         danhSachNhanVien.clear();
 
@@ -36,7 +39,7 @@ void DocFileCSV::DocFile(){
                     nv->setNgayLam(ngaylam);
                     nv->setNgayLamViec(ngaylamviec);
                     nv->setNgayPhepTichLuy(ngayphep);
-                    nv->setNgayNghikhongPhep(nghikp);
+                    nv->setNgayNghiKhongPhep(nghikp);
 
                     if (NhanVienVanPhong* vp = dynamic_cast<NhanVienVanPhong*>(nv))
                         vp->setLuongCoBan(luongcb);
