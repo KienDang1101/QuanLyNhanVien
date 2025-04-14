@@ -51,6 +51,15 @@ string NhanVien::getNgayLam() const
 	return this->NgayLam;
 }
 
+void NhanVien::setChucVu(string ChucVu)
+{
+	this->ChucVu = ChucVu;
+}
+string NhanVien::getChucVu() const
+{
+	return this->ChucVu;
+}
+
 void NhanVien::setNgayLamViec(int NgayLamViec)
 {
 	this->NgayLamViec = NgayLamViec;
@@ -113,6 +122,15 @@ TruongPhong::TruongPhong(int ID, string HoTen, string NgayLam, string ChucVu, in
 
 TruongPhong::~TruongPhong() {}
 
+void TruongPhong::setLuongCoBan(int LuongCoBan)
+{
+	this->LuongCoBan = LuongCoBan;
+}
+int TruongPhong::getLuongCoBan() const
+{
+	return this->LuongCoBan;
+}
+
 PhoPhong::PhoPhong()
 {
 	this->LuongCoBan = 0;
@@ -125,6 +143,15 @@ PhoPhong::PhoPhong(int ID, string HoTen, string NgayLam, string ChucVu, int Ngay
 }
 
 PhoPhong::~PhoPhong() {}
+
+void PhoPhong::setLuongCoBan(int LuongCoBan)
+{
+	this->LuongCoBan = LuongCoBan;
+}
+int PhoPhong::getLuongCoBan() const
+{
+	return this->LuongCoBan;
+}
 
 NhanVienVanPhong::NhanVienVanPhong()
 {
@@ -139,6 +166,15 @@ NhanVienVanPhong::NhanVienVanPhong(int ID, string HoTen, string NgayLam, string 
 
 NhanVienVanPhong::~NhanVienVanPhong() {}
 
+void NhanVienVanPhong::setLuongCoBan(int LuongCoBan)
+{
+	this->LuongCoBan = LuongCoBan;
+}
+int NhanVienVanPhong::getLuongCoBan() const
+{
+	return this->LuongCoBan;
+}
+
 float TruongPhong::TinhLuong()
 {
 	float Luong = 0.0f;
@@ -150,7 +186,6 @@ float TruongPhong::TinhLuong()
 		Luong -= 0.05f * LuongCoBan;
 	else if (this->NgayNghiKhongPhep > 1)
 		Luong -= 0.02f * LuongCoBan;
-	return Luong;
 }
 
 float PhoPhong::TinhLuong()
