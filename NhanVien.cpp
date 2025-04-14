@@ -87,14 +87,20 @@ int NhanVien::getNgayNghiKhongPhep() const
 	return this->NgayNghiKhongPhep;
 }
 
+int NhanVien::getLuongCoBan() const
+{
+	return 0;
+}
+
 string NhanVien::DanhGia()
 {
-	if (this->NgayLamViec >= 20)
-		return "Tot";
-	else if (this->NgayLamViec >= 15)
-		return "TrungBinh";
-	else
+	if (this->NgayNghiKhongPhep >= 5)
 		return "Yeu";
+	else if (this->NgayNghiKhongPhep >= 3)
+		return "Trung Binh";
+	else if (this->NgayNghiKhongPhep >= 0)
+		return "Tot";
+
 }
 
 float NhanVien::HeSoLuong()
@@ -107,6 +113,11 @@ float NhanVien::HeSoLuong()
 	else
 		result = 1.0f;
 	return result;
+}
+
+float NhanVien::TinhLuong()
+{
+	return 0.0f;
 }
 
 TruongPhong::TruongPhong()
