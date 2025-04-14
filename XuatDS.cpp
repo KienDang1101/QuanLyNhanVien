@@ -1,6 +1,7 @@
 #include "XuatDS.h"
 
-void XuatDS::Xuat(){
+void XuatDS::Xuat()
+{
     cout << left << setw(6) << "ID"
          << setw(20) << "Ho Ten"
          << setw(15) << "Chuc Vu"
@@ -13,17 +14,18 @@ void XuatDS::Xuat(){
          << setw(12) << "Luong"
          << setw(10) << "Danh Gia"
          << endl;
-    for (auto nv : danhSachNhanVien) {
+    for (auto nv : DanhSachNhanVien) 
+    {
         cout << left << setw(6) << nv->getID()
              << setw(20) << nv->getHoTen()
-             << setw(15) << nv->getChuCVu()
+             << setw(15) << nv->getChucVu()
              << setw(15) << nv->getNgayLam()
              << setw(10) << nv->getNgayLamViec()
              << setw(10) << nv->getNgayPhepTichLuy()
-             << setw(10) << nv->getNgaynghiKhongPhep()
+             << setw(10) << nv->getNgayNghiKhongPhep()
              << setw(10) << nv->getLuongCoBan()
-             << setw(8)  << setprecision(2) << nv->HeSoLuong()
-             << setw(12) << setprecision(2) << nv->TinhLuong()
+             << setw(8)  << fixed << setprecision(2) << nv->HeSoLuong()
+             << setw(12) << fixed << setprecision(2) << nv->TinhLuong()
              << setw(10) << nv->DanhGia()
              << endl;
     }
