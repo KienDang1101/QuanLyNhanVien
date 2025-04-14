@@ -1,7 +1,7 @@
 #include "GhiFileCSV.h"
 
 void GhiFileCSV::GhiFile(){
-    ofstream myFile("DanhSach_out.csv");
+    ofstream myFile("DanhSach.csv");
 
     if (myFile.is_open()) {
         myFile << "ID,Ten,Chuc vu,Ngay bat dau lam,Ngay lam viec,Ngay nghi phep tich luy,Ngay nghi khong phep,Luong co ban,He so luong,Luong thuc te,Danh gia\n";
