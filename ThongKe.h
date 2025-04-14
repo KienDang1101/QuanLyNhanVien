@@ -2,14 +2,15 @@
 #define THONGKE_H
 
 #include "NhanVien.h"
+#include <vector>
 
 class ThongKe {
 public:
-	vector <NhanVien*> List_DanhGia(vector <NhanVien*>, string);
+	static vector <NhanVien*> List_DanhGia(vector <NhanVien*>, string);
 
-	vector <NhanVien*> List_NgayNghi(vector <NhanVien*>, unsigned int);
+	static vector <NhanVien*> List_NgayNghi(vector <NhanVien*>, int);
 
-	vector <NhanVien*> Options(vector <NhanVien*>);
+	static vector <NhanVien*> Options(vector <NhanVien*>);
 };
 
 #endif
