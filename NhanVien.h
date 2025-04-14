@@ -55,6 +55,9 @@ public:
 	TruongPhong();
 	TruongPhong(int, string, string, string, int, int, int, int);
 	~TruongPhong();
+
+	void setLuongCoBan(int);
+	int getLuongCoBan() const;
 	float TinhLuong();
 };
 
@@ -66,6 +69,9 @@ public:
 	PhoPhong();
 	PhoPhong(int, string, string, string, int, int, int, int);
 	~PhoPhong();
+
+	void setLuongCoBan(int);
+	int getLuongCoBan() const;
 	float TinhLuong();
 };
 
@@ -77,6 +83,9 @@ public:
 	NhanVienVanPhong();
 	NhanVienVanPhong(int, string, string, string, int, int, int, int);
 	~NhanVienVanPhong();
+
+	void setLuongCoBan(int);
+	int getLuongCoBan() const;
 	float TinhLuong();
 };
 
