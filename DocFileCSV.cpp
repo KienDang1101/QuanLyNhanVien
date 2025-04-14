@@ -47,10 +47,6 @@ void DocFileCSV::DocFile()
                     else if (TruongPhong* tp = dynamic_cast<TruongPhong*>(nv))
                         tp->setLuongCoBan(luongcb);
 
-                    // nv->setHeSoLuong(nv->HeSoLuong());
-                    // nv->setLuongThucTe(nv->TinhLuong());
-                    // nv->setDanhGia(nv->DanhGia());
-
                     DanhSachNhanVien.push_back(nv);
                 }
             }
