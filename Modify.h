@@ -7,7 +7,7 @@
 
 using namespace std;
 
-extern vector<NhanVien*> danhSachNhanVien;
+extern vector<NhanVien*> DanhSachNhanVien;
 class Modify{
 public:
     static void Them();
