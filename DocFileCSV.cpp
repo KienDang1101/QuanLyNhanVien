@@ -1,11 +1,10 @@
 #include "DocFileCSV.h"
 
-vector<NhanVien*> danhSachNhanVien;
 
 void DocFileCSV::DocFile()
 {
-    for (auto nv : danhSachNhanVien) delete nv;
-        danhSachNhanVien.clear();
+    for (auto nv : DanhSachNhanVien) delete nv;
+        DanhSachNhanVien.clear();
 
         ifstream myFile("DanhSach.csv");
 
@@ -52,7 +51,7 @@ void DocFileCSV::DocFile()
                     // nv->setLuongThucTe(nv->TinhLuong());
                     // nv->setDanhGia(nv->DanhGia());
 
-                    danhSachNhanVien.push_back(nv);
+                    DanhSachNhanVien.push_back(nv);
                 }
             }
             cout << "\nDoc file thanh cong\n";
