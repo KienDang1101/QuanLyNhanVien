@@ -8,10 +8,13 @@
 #include <vector>
 #include <string>
 
+extern vector<NhanVien*> DanhSachNhanVien;
 using namespace std;
 
-class GhiFileCSV(){
-    void GhiFile();
+class GhiFileCSV
+{
+public:
+    static void GhiFile();
 };
 
 #endif
