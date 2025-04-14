@@ -74,7 +74,7 @@ void Modify::ChinhSua(){
             nv->setNgayLam(ngaylam);
             nv->setNgayLamViec(ngaylamviec);
             nv->setNgayPhepTichLuy(ngayphep);
-            nv->setNgayNghikhongPhep(nghikp);
+            nv->setNgayNghiKhongPhep(nghikp);
 
             if (NhanVienVanPhong* vp = dynamic_cast<NhanVienVanPhong*>(nv))
                 vp->setLuongCoBan(luongcb);
@@ -82,10 +82,6 @@ void Modify::ChinhSua(){
                 pp->setLuongCoBan(luongcb);
             else if (TruongPhong* tp = dynamic_cast<TruongPhong*>(nv))
                 tp->setLuongCoBan(luongcb);
-
-            // nv->setHeSoLuong(nv->HeSoLuong());
-            // nv->setLuongThucTe(nv->TinhLuong());
-            // nv->setDanhGia(nv->DanhGia());
 
             cout << "Chinh sua thanh cong!\n";
             return;
