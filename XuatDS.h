@@ -2,14 +2,16 @@
 #define XUATDS_H
 
 #include "NhanVien.h"
+#include <vector>
 #include <iomanip>
 
+extern vector<NhanVien*> DanhSachNhanVien;
 using namespace std;
 
 class XuatDS
-{
-private:
-   vector<NhanVien*> danhSachNhanVien;
+{	
 public:
    static void Xuat();
 };
+
+#endif
