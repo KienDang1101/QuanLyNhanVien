@@ -2,7 +2,7 @@
 
 int SAPXEP::convertDanhGia(const string DanhGia) {
     if (DanhGia == "Yeu")       return 1;
-    if (DanhGia == "TrungBinh") return 2;
+    if (DanhGia == "Trung Binh") return 2;
     if (DanhGia == "Tot")       return 3;
     return -1;
 }
