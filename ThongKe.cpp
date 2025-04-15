@@ -43,7 +43,7 @@ vector <NhanVien*> ThongKe::Options(vector <NhanVien*> DanhSach) {
 			List = List_DanhGia(DanhSach, "Tot");
 			break;
 		case 2:
-			List = List_DanhGia(DanhSach, "TrungBinh");
+			List = List_DanhGia(DanhSach, "Trung Binh");
 			break;
 		case 3:
 			List = List_DanhGia(DanhSach, "Yeu");
